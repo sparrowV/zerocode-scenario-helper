@@ -1,19 +1,36 @@
 <idea-plugin>
-    <id>com.github.sparrowv.zerocodescenariohelper</id>
-    <name>zerocode-scenario-helper</name>
-    <vendor>sparrowv</vendor>
+    <id>ge.odvali</id>
+    <name>Zerocode Scenario Helper</name>
+    <version>0.1</version>
+    <vendor email="otto.dvali@gmail.com" url="https://www.github.com/sparrowV">Otto Dvalishvili</vendor>
 
-    <!-- Product and plugin compatibility requirements -->
-    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
-    <depends>com.intellij.modules.platform</depends>
+    <description><![CDATA[
+        <p>Adds support for writing <a  href="https://github.com/authorjapps/zerocode" >Zerocode </a> scenarios.<p>
+        The plugin has 2 features:
+        <ul>
+            <li>keyword completion</li>
+            <li>scenario files are validated against json schema</li>
+        </ul>
+    ]]></description>
+
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.sparrowv.zerocodescenariohelper.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.sparrowv.zerocodescenariohelper.services.MyProjectService"/>
+        <completion.contributor language="JSON"
+                                implementationClass="ge.odvali.completion.ScenarioCompletionContributor"/>
+        <completion.contributor language="yaml"
+                                implementationClass="ge.odvali.completion.ScenarioCompletionContributor"/>
+        <!-- Add your extensions here -->
+        <annotator language="JSON" implementationClass="ge.odvali.validation.ScenarioAnnotator"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.sparrowv.zerocodescenariohelper.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+
 </idea-plugin>

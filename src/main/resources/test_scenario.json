@@ -1,0 +1,60 @@
+{
+  "scenarioName": "",
+  "loop:": 1,
+  "ignoreStepFailures": false,
+  "steps": [
+    {
+      "name": "new_account",
+      "loop": 1,
+      "method": "POST",
+      "operation": "",
+      "customLog": "Contributing to Zerocode",
+      "url": "/accounts/new",
+      "retry": {
+        "max": 1,
+        "delay": 0
+      },
+      "ignoreStep": false,
+      "validators": [],
+      "id": "123",
+      "stepFile": {},
+      "stepFiles": [],
+      "parameterized": [],
+      "parameterizedCsv": [],
+      "request": {
+        "queryParams": {
+        },
+        "headers": {
+        },
+        "body": {
+        },
+        "records": [
+        ],
+        "consumerLocalConfigs": {
+        }
+      },
+      "verifyMode": "lenient",
+      "verify": {
+        "status": 200,
+        "body": {
+        },
+        "headers": {},
+        "rawBody": "",
+        "size": 1,
+        "records": [],
+        "recordMetadata": ""
+      },
+      "assertions": {
+        "status": 200,
+        "body": {
+        },
+        "headers": {},
+        "rawBody": "",
+        "size": 1,
+        "records": [],
+        "recordMetadata": ""
+      }
+    }
+  ]
+}
+

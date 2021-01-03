@@ -1,0 +1,45 @@
+{
+  "scenarioName": "Make the host config properties available into the test case json",
+  "steps": [
+    {
+      "name": "config",
+      "url": "org.jsmart.zerocode.zerocodejavaexec.utils.PropertyUtils",
+      "method": "readProperties",
+      "request": "",
+      "assertions": {
+        "new_api_host": "https://api.github.com",
+        "['restful.application.endpoint.host']": "http://localhost",
+        "['restful.application.endpoint.port']": 9999,
+        "['another.new.endpoint.host']": "https://api.github.com"
+      }
+    },
+    {
+      "name": "get_user_details",
+      "url": "${$.config.response['another.new.endpoint.host']}/users/octocat",
+      "method": "GET",
+      "request": {
+      },
+      "assertions": {
+        "status": 200,
+        "body": {
+          "login": "octocat",
+          "type": "User"
+        }
+      }
+    },
+    {
+      "name": "get_user_details_way2",
+      "url": "${$.config.response.new_api_host}/users/octocat",
+      "method": "GET",
+      "request": {
+      },
+      "assertions": {
+        "status": 200,
+        "body": {
+          "login": "octocat",
+          "type": "User"
+        }
+      }
+    }
+  ]
+}

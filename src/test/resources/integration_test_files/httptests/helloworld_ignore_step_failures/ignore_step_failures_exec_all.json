@@ -1,0 +1,29 @@
+{
+  "scenarioName": "Multi step exec all steps via ignore step failure",
+  "ignoreStepFailures": true,
+  "steps": [
+    {
+      "name": "get_enitity",
+      "url": "/wrong/url",
+      "method": "GET",
+      "request": {
+      },
+      "assertions": {
+        "status": 900
+      }
+    },
+    {
+      "name": "get_user_details",
+      "url": "/users/octocat",
+      "method": "GET",
+      "request": {
+      },
+      "assertions": {
+        "status": 200,
+        "body": {
+          "login": "octocat"
+        }
+      }
+    }
+  ]
+}

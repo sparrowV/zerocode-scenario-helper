@@ -1,0 +1,34 @@
+{
+  "scenarioName": "Unload - consume a message from kafka",
+  "steps": [
+    {
+      "name": "load_kafka",
+      "url": "kafka-topic:demo-c1",
+      "operation": "load",
+      "request": {
+        "records": [
+          {
+            "key": "${RANDOM.NUMBER}",
+            "value": "Hello World"
+          }
+        ]
+      },
+      "assertions": {
+        "status": "Ok"
+      }
+    },
+    {
+      "name": "onload_kafka",
+      "url": "kafka-topic:demo-c1",
+      "operation": "unload",
+      "request": {
+        "consumerLocalConfigs": {
+          "maxNoOfRetryPollsOrTimeouts": 1
+        }
+      },
+      "assertions": {
+        "size": "$GT.0"
+      }
+    }
+  ]
+}

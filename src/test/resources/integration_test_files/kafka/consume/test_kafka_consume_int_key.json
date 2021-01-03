@@ -1,0 +1,31 @@
+{
+  "scenarioName": "Unload - consume a message from kafka",
+  "steps": [
+    {
+      "name": "load_kafka",
+      "url": "kafka-topic:demo-int-topic-1",
+      "operation": "load",
+      "request": {
+        "records": [
+          {
+            "key": 101,
+            "value": "Hello World"
+          }
+        ]
+      },
+      "assertions": {
+        "status": "Ok"
+      }
+    },
+    {
+      "name": "onload_kafka",
+      "url": "kafka-topic:demo-int-topic-1",
+      "operation": "unload",
+      "request": {
+      },
+      "assertions": {
+        "size": "$GT.0"
+      }
+    }
+  ]
+}

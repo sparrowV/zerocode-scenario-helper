@@ -1,0 +1,74 @@
+{
+  "scenarioName": "consume a AVRO msg message",
+  "steps": [
+    {
+      "name": "consume_avro_msg_as_json",
+      "url": "kafka-topic:bar",
+      "operation": "unload",
+      "request": {
+        "consumerLocalConfigs": {
+          "recordType": "JSON",
+          "commitSync": false,
+          "maxNoOfRetryPollsOrTimeouts": 3
+        }
+      },
+      "assertions": {
+        "size": 1,
+        "records": [
+          {
+            "key": null,
+            "jsonKey": null,
+            "value": {
+              "f1": "value1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "consume_avro_msg_as_raw",
+      "url": "kafka-topic:bar",
+      "operation": "unload",
+      "request": {
+        "consumerLocalConfigs": {
+          "recordType": "RAW",
+          "commitSync": false,
+          "showRecordsConsumed": true,
+          "maxNoOfRetryPollsOrTimeouts": 3
+        }
+      },
+      "assertions": {
+        "size": 1,
+        "records": [
+          {
+            "topic": "bar",
+            "partition": 0,
+            "offset": 0,
+            "value": {
+              "schema": {
+                "fields": [
+                  {
+                    "name": "f1",
+                    "position": 0,
+                    "schema": {
+                      "type": "STRING"
+                    }
+                  }
+                ],
+                "name": {
+                  "name": "myrecord",
+                  "full": "myrecord"
+                }
+              },
+              "values": [
+                {
+                  "string": "value1"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

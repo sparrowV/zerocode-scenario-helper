@@ -1,0 +1,410 @@
+{
+  "definitions": {
+    "questionA": {
+      "type": "object",
+      "properties": {
+        "answer": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            ""
+          ]
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1609092366.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "scenarioName",
+    "steps"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "scenarioName": {
+      "$id": "#root/scenarioName",
+      "title": "Scenarioname",
+      "type": "string",
+      "default": "",
+      "pattern": "^.*$"
+    },
+    "parameterized": {
+      "$id": "#root/parameterized",
+      "title": "Parameterized",
+      "type": "object",
+      "default": []
+    },
+    "loop": {
+      "$id": "#root/loop:",
+      "title": "Loop:",
+      "type": "integer",
+      "default": 0
+    },
+    "ignoreStepFailures": {
+      "$id": "#root/ignoreStepFailures",
+      "title": "Ignorestepfailures",
+      "type": "boolean",
+      "default": true
+    },
+    "steps": {
+      "$id": "#root/steps",
+      "title": "Steps",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$id": "#root/steps/items",
+        "title": "Items",
+        "type": "object",
+        "dependencies": {
+          "name": {
+            "required": [
+              "url"
+            ]
+          },
+          "url": {
+            "required": [
+              "name"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "operation"
+                ]
+              },
+              {
+                "required": [
+                  "method"
+                ]
+              }
+            ]
+          }
+        },
+        "properties": {
+          "name": {
+            "$id": "#root/steps/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "loop": {
+            "$id": "#root/steps/items/loop",
+            "title": "Loop",
+            "type": "integer",
+            "default": 0
+          },
+          "method": {
+            "$id": "#root/steps/items/method",
+            "title": "Method",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "operation": {
+            "$id": "#root/steps/items/operation",
+            "title": "Operation",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "customLog": {
+            "$id": "#root/steps/items/customLog",
+            "title": "Customlog",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "url": {
+            "$id": "#root/steps/items/url",
+            "title": "Url",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "retry": {
+            "$id": "#root/steps/items/retry",
+            "title": "Retry",
+            "type": "object",
+            "required": [
+              "max",
+              "delay"
+            ],
+            "properties": {
+              "max": {
+                "$id": "#root/steps/items/retry/max",
+                "title": "Max",
+                "type": "integer",
+                "default": 0
+              },
+              "delay": {
+                "$id": "#root/steps/items/retry/delay",
+                "title": "Delay",
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "ignoreStep": {
+            "$id": "#root/steps/items/ignoreStep",
+            "title": "Ignorestep",
+            "type": "boolean",
+            "default": true
+          },
+          "validators": {
+            "$id": "#root/steps/items/validators",
+            "title": "Validators",
+            "type": "array",
+            "default": []
+          },
+          "id": {
+            "$id": "#root/steps/items/id",
+            "title": "Id",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "stepFile": {
+            "$id": "#root/steps/items/stepFile",
+            "title": "Stepfile",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "stepFiles": {
+            "$id": "#root/steps/items/stepFiles",
+            "title": "Stepfiles",
+            "type": "string"
+          },
+          "parameterized": {
+            "$id": "#root/steps/items/parameterized",
+            "title": "Parameterized",
+            "type": "array",
+            "default": []
+          },
+          "parameterizedCsv": {
+            "$id": "#root/steps/items/parameterizedCsv",
+            "title": "Parameterizedcsv",
+            "type": "array",
+            "default": []
+          },
+          "request": {
+            "$id": "#root/steps/items/request",
+            "title": "Request",
+            "type": [
+              "object",
+              "string"
+            ],
+            "required": [
+            ],
+            "properties": {
+              "queryParams": {
+                "$id": "#root/steps/items/request/queryParams",
+                "title": "Queryparams",
+                "type": "object",
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "headers": {
+                "$id": "#root/steps/items/request/headers",
+                "title": "Headers",
+                "type": "object",
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "body": {
+                "$id": "#root/steps/items/request/body",
+                "title": "Body",
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "recordType": {
+                "$id": "#root/steps/items/request/recordType",
+                "title": "RecordType",
+                "type": "string",
+                "default": "JSON"
+              },
+              "records": {
+                "$id": "#root/steps/items/request/records",
+                "title": "Records",
+                "type": "array",
+                "default": []
+              },
+              "consumerLocalConfigs": {
+                "$id": "#root/steps/items/request/consumerLocalConfigs",
+                "title": "Consumerlocalconfigs",
+                "type": "object",
+                "required": [
+                ],
+                "properties": {
+                }
+              }
+            }
+          },
+          "verifyMode": {
+            "$id": "#root/steps/items/verifyMode",
+            "title": "Verifymode",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "verify": {
+            "$id": "#root/steps/items/verify",
+            "title": "Verify",
+            "type": [
+              "object",
+              "array"
+            ],
+            "required": [
+            ],
+            "properties": {
+              "status": {
+                "$id": "#root/steps/items/verify/status",
+                "title": "Status",
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "default": 0
+              },
+              "body": {
+                "$id": "#root/steps/items/verify/body",
+                "title": "Body",
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "headers": {
+                "$id": "#root/steps/items/verify/headers",
+                "title": "Headers",
+                "type": "object",
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "rawBody": {
+                "$id": "#root/steps/items/verify/rawBody",
+                "title": "Rawbody",
+                "type": "string",
+                "default": "",
+                "pattern": "^.*$"
+              },
+              "size": {
+                "$id": "#root/steps/items/verify/size",
+                "title": "Size",
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "default": 0
+              },
+              "records": {
+                "$id": "#root/steps/items/verify/records",
+                "title": "Records",
+                "type": "array",
+                "default": []
+              },
+              "recordMetadata": {
+                "$id": "#root/steps/items/verify/recordMetadata",
+                "title": "Recordmetadata",
+                "type": "object",
+                "default": "",
+                "pattern": "^.*$"
+              }
+            }
+          },
+          "assertions": {
+            "$id": "#root/steps/items/assertions",
+            "title": "Assertions",
+            "type": "object",
+            "required": [
+            ],
+            "properties": {
+              "status": {
+                "$id": "#root/steps/items/assertions/status",
+                "title": "Status",
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "default": 0
+              },
+              "body": {
+                "$id": "#root/steps/items/assertions/body",
+                "title": "Body",
+                "type": [
+                  "object",
+                  "string",
+                  "array"
+                ],
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "headers": {
+                "$id": "#root/steps/items/assertions/headers",
+                "title": "Headers",
+                "type": "object",
+                "required": [
+                ],
+                "properties": {
+                }
+              },
+              "rawBody": {
+                "$id": "#root/steps/items/assertions/rawBody",
+                "title": "Rawbody",
+                "type": "string",
+                "default": "",
+                "pattern": "^.*$"
+              },
+              "size": {
+                "$id": "#root/steps/items/assertions/size",
+                "title": "Size",
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "default": 0
+              },
+              "records": {
+                "$id": "#root/steps/items/assertions/records",
+                "title": "Records",
+                "type": "array",
+                "default": []
+              },
+              "recordMetadata": {
+                "$id": "#root/steps/items/assertions/recordMetadata",
+                "title": "Recordmetadata",
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "default": "",
+                "pattern": "^.*$"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
