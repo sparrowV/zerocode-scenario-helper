@@ -9,7 +9,6 @@ import com.intellij.patterns.PlatformPatterns;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import org.jsoup.internal.StringUtil;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -46,7 +45,7 @@ public class ScenarioCompletionContributor extends CompletionContributor {
                 }
                 psiText = psiText.trim();
 
-                if (!StringUtil.isBlank(psiText)) {
+                if (!psiText.equals("")) {
                     resultSet.addAllElements(getSuggestedWordsToDisplay(psiText));
                 }
             }
