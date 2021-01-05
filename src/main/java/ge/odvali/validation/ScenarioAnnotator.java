@@ -1,5 +1,6 @@
 package ge.odvali.validation;
 
+import com.intellij.lang.annotation.Annotation;
 import com.intellij.lang.annotation.AnnotationHolder;
 import com.intellij.lang.annotation.Annotator;
 import com.intellij.lang.annotation.HighlightSeverity;
@@ -9,11 +10,9 @@ import org.everit.json.schema.Schema;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 public class ScenarioAnnotator implements Annotator {
@@ -23,11 +22,11 @@ public class ScenarioAnnotator implements Annotator {
         PsiFile containingFile = element.getContainingFile();
         if (!containingFile.getVirtualFile().getPath().contains("/src/test/resources")) return;
         String jsonFile = containingFile.getText();
-        validateFile(jsonFile, holder);
+        validateFile(jsonFile, holder, element);
     }
 
 
-    private void validateFile(String jsonFile, AnnotationHolder holder) {
+    private void validateFile(String jsonFile, AnnotationHolder holder, PsiElement psiElement) {
         try (InputStream inputStream = getClass().getResourceAsStream("/schema.json")) {
             JSONObject rawSchema = new JSONObject(new JSONTokener(inputStream));
             Schema schema = SchemaLoader.load(rawSchema);
@@ -36,6 +35,8 @@ public class ScenarioAnnotator implements Annotator {
             holder.newAnnotation(HighlightSeverity.ERROR, e.getAllMessages().get(0)).tooltip("qqq")
                     .fileLevel()
                     .create();
+
+
         } catch (Exception e) {
 //            e.printStackTrace();
 
