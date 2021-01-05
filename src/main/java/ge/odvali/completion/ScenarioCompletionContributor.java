@@ -46,7 +46,7 @@ public class ScenarioCompletionContributor extends CompletionContributor {
                 }
                 psiText = psiText.trim();
 
-                if (!StringUtil.isBlank(psiText)) {
+                if (!psiText.equals("")) {
                     resultSet.addAllElements(getSuggestedWordsToDisplay(psiText));
                 }
             }
