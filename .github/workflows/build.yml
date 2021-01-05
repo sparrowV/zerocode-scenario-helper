@@ -14,7 +14,7 @@
 ## JBIJPPTPL
 
 name: Build
-on: [push, pull_request]
+on: [ push, pull_request ]
 jobs:
 
   # Run Gradle Wrapper Validation Action to verify the wrapper's checksum
@@ -42,7 +42,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
 
       # Check out current repository
       - name: Fetch Sources
@@ -87,7 +87,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
 
       # Check out current repository
       - name: Fetch Sources
@@ -149,7 +149,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
 
       # Check out current repository
       - name: Fetch Sources
@@ -196,7 +196,7 @@ jobs:
   releaseDraft:
     name: Release Draft
     if: github.event_name != 'pull_request'
-    needs: [build, verify]
+    needs: [ build, verify ]
     runs-on: ubuntu-latest
     steps:
 
