@@ -26,6 +26,7 @@
                                 implementationClass="ge.odvali.completion.ScenarioCompletionContributor"/>
         <!-- Add your extensions here -->
         <annotator language="JSON" implementationClass="ge.odvali.validation.ScenarioAnnotator"/>
+        <annotator language="yaml" implementationClass="ge.odvali.validation.ScenarioAnnotator"/>
     </extensions>
 
     <actions>
