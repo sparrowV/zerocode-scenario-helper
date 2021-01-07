@@ -49,11 +49,10 @@ dependencies {
     implementation("org.everit.json:org.everit.json.schema:1.5.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0'")
-    implementation("com.networknt:json-schema-validator:1.0.46");
+    implementation("com.networknt:json-schema-validator:1.0.46")
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.1")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.0")
-
 }
 
 // Configure gradle-intellij-plugin plugin.
