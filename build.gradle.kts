@@ -47,7 +47,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.7")
 // https://mvnrepository.com/artifact/org.everit.json/org.everit.json.schema
     implementation("org.everit.json:org.everit.json.schema:1.5.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0'")
     implementation("com.networknt:json-schema-validator:1.0.46")
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
