@@ -6,10 +6,10 @@
 
     <description><![CDATA[
         <p>Adds support for writing <a  href="https://github.com/authorjapps/zerocode" >Zerocode </a> scenarios.<p>
-        The plugin has 2 features:
+        The plugin has the following features:
         <ul>
-            <li>keyword completion</li>
-            <li>scenario files are validated against json schema</li>
+            <li>keyword completion suggestions</li>
+            <li>scenario files are validated against json/yaml schema as you type</li>
         </ul>
     ]]></description>
 
