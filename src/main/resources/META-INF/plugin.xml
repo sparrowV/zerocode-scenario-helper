@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>ge.odvali</id>
     <name>Zerocode Scenario Helper</name>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <vendor email="otto.dvali@gmail.com" url="https://www.github.com/sparrowV">Otto Dvalishvili</vendor>
 
     <description><![CDATA[
