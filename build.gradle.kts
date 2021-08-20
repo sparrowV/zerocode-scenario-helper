@@ -44,7 +44,7 @@ repositories {
 }
 dependencies {
 //    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.15.0")
-    implementation("com.google.code.gson:gson:2.7")
+    implementation("com.google.code.gson:gson:2.8.8")
 // https://mvnrepository.com/artifact/org.everit.json/org.everit.json.schema
     implementation("org.everit.json:org.everit.json.schema:1.5.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
