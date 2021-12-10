@@ -51,7 +51,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0'")
     implementation("com.networknt:json-schema-validator:1.0.46")
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
-    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.1")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.15.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.0")
 }
 
