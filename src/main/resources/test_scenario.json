@@ -4,7 +4,7 @@
   "ignoreStepFailures": false,
   "steps": [
     {
-      "name": "new_account",
+      "name": "ge.odvali.navigation.ClassNavigation",
       "loop": 1,
       "method": "POST",
       "operation": "",

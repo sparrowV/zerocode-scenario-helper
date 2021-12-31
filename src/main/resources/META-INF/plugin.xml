@@ -13,7 +13,6 @@
         </ul>
     ]]></description>
 
-
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.lang</depends>
@@ -27,6 +26,13 @@
         <!-- Add your extensions here -->
         <annotator language="JSON" implementationClass="ge.odvali.validation.ScenarioAnnotator"/>
         <annotator language="yaml" implementationClass="ge.odvali.validation.ScenarioAnnotator"/>
+        <!--        <symbolNavigation implementationClass="ge.odvali.navigation.ReferenceContributor"-->
+        <!--                          forClass="ge.odvali.navigation.MySymbol"/>-->
+        <!--        <psi.referenceProvider providerClass="ge.odvali.navigation.ReferenceContributor"/>-->
+        <psi.referenceContributor implementation="ge.odvali.navigation.ReferenceContributor" language="JSON"/>
+        <psi.referenceContributor implementation="ge.odvali.navigation.ReferenceContributor" language="yaml"/>
+        <codeInsight.lineMarkerProvider language="JSON"
+                                        implementationClass="ge.odvali.navigation.LineMarker"/>
     </extensions>
 
     <actions>
