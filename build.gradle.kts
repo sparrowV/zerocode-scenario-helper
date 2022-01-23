@@ -53,6 +53,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.17.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
 }
 
 // Configure gradle-intellij-plugin plugin.

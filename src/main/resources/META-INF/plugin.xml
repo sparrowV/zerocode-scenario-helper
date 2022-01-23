@@ -1,7 +1,8 @@
 <idea-plugin>
     <id>ge.odvali</id>
     <name>Zerocode Scenario Helper</name>
-    <version>0.0.3</version>
+    <product-descriptor code="PZEROCODE" release-date="20220128" release-version="10"/>
+    <version>1.0.0</version>
     <vendor email="otto.dvali@gmail.com" url="https://www.github.com/sparrowV">Otto Dvalishvili</vendor>
 
     <description><![CDATA[
@@ -10,6 +11,21 @@
         <ul>
             <li>keyword completion suggestions</li>
             <li>scenario files are validated against json/yaml schema as you type</li>
+            <li>Navigation support:
+            <ul style="margin-top: 0;">
+                    <li>Navigate to corresponding java test class from scenario</li>
+                    <li>Navigate to step files(steps defined outside scenario) from scenario</li>
+                    <li>Navigate to java methods which are invoked from scenario</li>
+                </ul>
+            </li>
+            <li>Template Step Generation
+                <ul style="margin-top: 0;">
+                    <li>REST</li>
+                    <li>SOAP</li>
+                    <li>KAFKA</li>
+                    <li>DB</li>
+                </ul>
+            </li>
         </ul>
     ]]></description>
 
@@ -36,8 +52,62 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <group id="zerocode.Menu" searchable="false" text="Add Zerocode Step Template" popup="true">
+            <add-to-group group-id="EditorPopupMenu"/>
+        </group>
+
+        <group id="zerocode.rest" searchable="false" text="Add REST Step" popup="true">
+            <action id="ge.odvali.actions.rest.GETAction"
+                    class="ge.odvali.actions.rest.GETAction"
+                    text="GET"
+                    description="Adds GET Step">
+            </action>
+            <action id="ge.odvali.actions.rest.PUTAction"
+                    class="ge.odvali.actions.rest.PUTAction"
+                    text="PUT"
+                    description="Adds PUT Step">
+            </action>
+            <action id="ge.odvali.actions.rest.POSTAction"
+                    class="ge.odvali.actions.rest.POSTAction"
+                    text="POST"
+                    description="Adds POST Step">
+            </action>
+            <action id="ge.odvali.actions.rest.DELETEAction"
+                    class="ge.odvali.actions.rest.DELETEAction"
+                    text="DELETE"
+                    description="Adds DELETE Step">
+            </action>
+            <add-to-group group-id="zerocode.Menu" anchor="first"/>
+        </group>
+
+        <action id="ge.odvali.actions.soap.SOAPAction"
+                class="ge.odvali.actions.soap.SOAPAction"
+                text="Add SOAP Step"
+                description="Adds SOAP Step">
+            <add-to-group group-id="zerocode.Menu"/>
+        </action>
+
+        <action id="ge.odvali.actions.db.DBAction"
+                class="ge.odvali.actions.db.DBAction"
+                text="Add DB Step"
+                description="Adds SOAP Step">
+            <add-to-group group-id="zerocode.Menu"/>
+        </action>
+
+        <group id="zerocode.kafka" searchable="false" text="Add Kafka Step" popup="true">
+            <action id="ge.odvali.actions.kafka.KafkaProduceAction"
+                    class="ge.odvali.actions.kafka.KafkaProduceAction"
+                    text="PRODUCE"
+                    description="Adds PRODUCE Step">
+            </action>
+
+            <action id="ge.odvali.actions.kafka.KafkaConsumerAction"
+                    class="ge.odvali.actions.kafka.KafkaConsumerAction"
+                    text="CONSUME"
+                    description="Adds CONSUME Step">
+            </action>
+            <add-to-group group-id="zerocode.Menu"/>
+        </group>
+
     </actions>
-
-
 </idea-plugin>

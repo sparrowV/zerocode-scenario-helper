@@ -58,19 +58,15 @@ public class ScenarioAnnotator implements Annotator {
             if (userData == null) {
                 for (ValidationMessage validationMessage : validationMessages) {
                     holder.newAnnotation(HighlightSeverity.ERROR, validationMessage.getMessage())
-                            .afterEndOfLine().range(new TextRange(0, 1))
+                            .afterEndOfLine().range(new TextRange(0, 1)) //this creates exceptions sometimes
                             .create();
                     currentAnnotationSession.putUserData(containsZeroCodeSchemaErrors, true);
                     break;
                 }
-
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
-
         }
     }
-
 }
