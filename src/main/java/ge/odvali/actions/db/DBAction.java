@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -17,17 +18,17 @@ public class DBAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Editor editor = e.getData(CommonDataKeys.EDITOR);
-        Document document = editor.getDocument();
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            JsonNode jsonNode = objectMapper.readTree(document.getText());
+            Editor editor = e.getData(CommonDataKeys.EDITOR);
+            Document document = editor.getDocument();
+            JsonNode jsonNode = Utils.OBJECT_MAPPER.readTree(document.getText());
             var steps = jsonNode.get("steps");
 
             ((ArrayNode) steps).add(createDBTemplateStep());
             WriteCommandAction.runWriteCommandAction(e.getProject(), () -> document.setText(jsonNode.toPrettyString().replace("\r",
                     ""))
             );
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

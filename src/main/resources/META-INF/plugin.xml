@@ -1,9 +1,9 @@
 <idea-plugin>
     <id>ge.odvali</id>
     <name>Zerocode Scenario Helper</name>
-    <product-descriptor code="PZEROCODE" release-date="20220128" release-version="10"/>
-    <version>1.0.0</version>
-    <vendor email="otto.dvali@gmail.com" url="https://www.github.com/sparrowV">Otto Dvalishvili</vendor>
+    <product-descriptor code="PZEROCODE" release-date="20220128" release-version="11"/>
+    <version>1.0.1</version>
+    <vendor email="otto.dvali@gmail.com" url="https://www.github.com/sparrowV">Otto_Dvalishvili</vendor>
 
     <description><![CDATA[
         <p>Adds support for writing <a  href="https://github.com/authorjapps/zerocode" >Zerocode </a> scenarios.<p>

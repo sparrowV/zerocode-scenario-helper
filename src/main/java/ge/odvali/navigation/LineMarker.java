@@ -36,8 +36,8 @@ public class LineMarker implements LineMarkerProvider {
 //                libraryNames.add(library.getName());
 //                return true;
 //            });
-            Pattern pattern = Pattern.compile("\"scenarioName\":\\s*\".*\"\\s*");
-            if (pattern.matcher(element.getText()).matches()) {
+            Pattern pattern1 = Pattern.compile("\"scenarioName\"\\s*:\\s*\".*\"\\s*");
+            if (pattern1.matcher(element.getText()).matches()) {
                 var scenarioFileAbsolutePath = element.getContainingFile().getVirtualFile().getCanonicalPath();
                 return calculateSingleLineMarkerInfo(element, scenarioFileAbsolutePath);
             }

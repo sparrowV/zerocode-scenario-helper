@@ -16,11 +16,10 @@ import org.jetbrains.annotations.NotNull;
 public class DELETEAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Editor editor = e.getData(CommonDataKeys.EDITOR);
-        Document document = editor.getDocument();
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            JsonNode jsonNode = objectMapper.readTree(document.getText());
+            Editor editor = e.getData(CommonDataKeys.EDITOR);
+            Document document = editor.getDocument();
+            JsonNode jsonNode = Utils.OBJECT_MAPPER.readTree(document.getText());
             var steps = jsonNode.get("steps");
 
             ((ArrayNode) steps).add(createDELETETemplateStep());
